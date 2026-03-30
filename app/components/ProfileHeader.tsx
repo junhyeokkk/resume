@@ -24,14 +24,14 @@ export default function ProfileHeader() {
 
           <div className="mt-6 flex flex-wrap gap-3 text-sm">
             <a
-              href="mailto:your-email@example.com"
+              href="mailto:loveu9911@naver.com"
               className="rounded-full bg-slate-100 px-4 py-2 font-medium text-slate-700 transition hover:bg-slate-200"
             >
-              your-email@example.com
+              loveu9911@naver.com
             </a>
 
             <a
-              href="https://github.com/your-github"
+              href="https://github.com/junhyeokkk"
               target="_blank"
               rel="noreferrer"
               className="rounded-full bg-slate-100 px-4 py-2 font-medium text-slate-700 transition hover:bg-slate-200"
@@ -40,7 +40,7 @@ export default function ProfileHeader() {
             </a>
 
             <a
-              href="https://your-blog.com"
+              href="https://junhyeokkk.tistory.com"
               target="_blank"
               rel="noreferrer"
               className="rounded-full bg-slate-100 px-4 py-2 font-medium text-slate-700 transition hover:bg-slate-200"
