@@ -9,10 +9,10 @@ export default function Footer() {
           
           <div>
             <p className="text-base font-semibold tracking-tight text-slate-900">
-              최준혁
+              {profile.name}
             </p>
             <p className="mt-1 text-sm uppercase tracking-[0.18em] text-slate-500">
-              Backend Developer
+              {profile.role}
             </p>
           </div>
 
@@ -28,7 +28,7 @@ export default function Footer() {
             <a
               href={profile.github}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-3 py-2 text-sm text-slate-600 transition hover:border-blue-200 hover:text-blue-600"
             >
               <span>GitHub</span>
@@ -37,7 +37,7 @@ export default function Footer() {
             <a
               href={profile.blog}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-3 py-2 text-sm text-slate-600 transition hover:border-blue-200 hover:text-blue-600"
             >
               <BookOpen size={14} />

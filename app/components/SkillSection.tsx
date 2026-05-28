@@ -3,7 +3,7 @@ import { skills } from "@/app/data/resume";
 
 export default function SkillSection() {
   return (
-    <section id="skill" className="mb-14">
+    <section id="skill" className="mb-14 scroll-mt-24">
       <SectionTitle title="SKILL" />
 
       <div className="mt-6 rounded-2xl bg-white p-7 shadow-sm ring-1 ring-slate-200/70">

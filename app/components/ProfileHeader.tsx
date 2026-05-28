@@ -7,11 +7,12 @@ export default function ProfileHeader() {
     <section className="print-card print-section mb-14 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200/70 md:p-10">
       <div className="print-header-layout flex flex-col-reverse gap-8 md:flex-row md:items-center md:justify-between">
         <div className="print-header-text print-left flex-1">
-          <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold tracking-[0.18em] text-blue-600">
-            BACKEND DEVELOPER
+          <span className="badge-grad inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-semibold tracking-[0.18em] text-blue-700 ring-1 ring-blue-100">
+            <span className="h-1.5 w-1.5 rounded-full bg-blue-500" aria-hidden="true" />
+            {profile.role.toUpperCase()}
           </span>
 
-          <h1 className="mt-4 text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
+          <h1 className="text-gradient mt-4 text-4xl font-bold tracking-tight md:text-5xl">
             {profile.name}
           </h1>
 
@@ -26,7 +27,7 @@ export default function ProfileHeader() {
 
           <div className="mt-6 flex flex-wrap gap-3 text-sm">
             <a
-              href="mailto:loveu9911111@gmail.com"
+              href={`mailto:${profile.email}`}
               className="flex items-center gap-2 rounded-full bg-slate-100 px-4 py-2 font-medium text-slate-700 hover:bg-slate-200"
             >
               <Mail size={16} />
@@ -34,7 +35,7 @@ export default function ProfileHeader() {
             </a>
 
             <a
-              href="tel:01034507418"
+              href={`tel:${profile.phone.replace(/-/g, "")}`}
               className="flex items-center gap-2 rounded-full bg-slate-100 px-4 py-2 font-medium text-slate-700 hover:bg-slate-200"
             >
               <Phone size={16} />
@@ -44,13 +45,14 @@ export default function ProfileHeader() {
             <a
               href={profile.github}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 rounded-full bg-slate-100 px-4 py-2 font-medium text-slate-700 hover:bg-slate-200"
             >
               <svg
                 className="h-4 w-4"
                 viewBox="0 0 24 24"
                 fill="currentColor"
+                aria-hidden="true"
               >
                 <path d="M12 .5C5.73.5.75 5.48.75 11.75c0 5.02 3.26 9.27 7.79 10.77.57.1.78-.25.78-.55 
                 0-.27-.01-1.17-.02-2.12-3.17.69-3.84-1.53-3.84-1.53-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 
@@ -66,7 +68,7 @@ export default function ProfileHeader() {
             <a
               href={profile.blog}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 rounded-full bg-slate-100 px-4 py-2 font-medium text-slate-700 hover:bg-slate-200"
             >
               <BookOpen size={16} />
@@ -76,14 +78,17 @@ export default function ProfileHeader() {
         </div>
 
         <div className="print-header-photo-wrap flex justify-center md:justify-end">
-          <div className="print-header-photo relative h-40 w-40 overflow-hidden rounded-full border-4 border-blue-200 shadow-md md:h-48 md:w-48">
-            <Image
-              src="/profile.jpg"
-              alt="최준혁 프로필 사진"
-              fill
-              className="object-cover"
-              priority
-            />
+          <div className="print-header-photo photo-ring relative h-40 w-40 rounded-full p-1 shadow-md md:h-48 md:w-48">
+            <div className="relative h-full w-full overflow-hidden rounded-full bg-white">
+              <Image
+                src="/profile.jpg"
+                alt={`${profile.name} 프로필 사진`}
+                fill
+                sizes="(min-width: 768px) 12rem, 10rem"
+                className="object-cover"
+                priority
+              />
+            </div>
           </div>
         </div>
       </div>

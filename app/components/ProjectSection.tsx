@@ -9,7 +9,7 @@ export default function ProjectSection() {
             <div className="mt-6 rounded-2xl bg-white p-7 shadow-sm ring-1 ring-slate-200/70 space-y-6 text-[15px] leading-7 text-slate-700">
                 {projects.map((project, i) => (
                     <div
-                        key={i}
+                        key={`${project.title}-${project.period}`}
                         className="grid grid-cols-12 gap-6 border-b border-slate-200 pb-8 last:border-none"
                     >
                         {/* 기간 */}

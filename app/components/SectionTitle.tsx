@@ -4,11 +4,12 @@ type SectionTitleProps = {
   
   export default function SectionTitle({ title }: SectionTitleProps) {
     return (
-      <div className="flex items-center gap-4">
-        <h2 className="text-lg font-bold tracking-[0.22em] text-blue-600">
+      <div className="flex items-center gap-3">
+        <span className="title-accent" aria-hidden="true" />
+        <h2 className="text-base font-bold tracking-[0.24em] text-slate-800">
           {title}
         </h2>
-        <div className="h-px flex-1 bg-slate-300" />
+        <span className="hairline" />
       </div>
     );
   }

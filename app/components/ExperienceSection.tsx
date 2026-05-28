@@ -9,7 +9,7 @@ export default function ExperienceSection() {
       <div className="mt-6 space-y-6">
         {experiences.map((exp, i) => (
           <div
-            key={i}
+            key={`${exp.company}-${exp.period}`}
             className="rounded-2xl bg-white p-7 shadow-sm ring-1 ring-slate-200/70 transition hover:-translate-y-1 hover:shadow-md"
           >
             <div className="grid grid-cols-12 gap-6">

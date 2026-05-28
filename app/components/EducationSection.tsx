@@ -13,7 +13,7 @@ export default function EducationSection() {
 
           <div className="space-y-10">
             {educations.map((edu, i) => (
-              <div key={i} className="relative pl-12">
+              <div key={`${edu.school}-${edu.period}`} className="relative pl-12">
                 
                 {/* 점 */}
                 <div className="absolute left-2 top-1.5 h-4 w-4 rounded-full bg-blue-600 ring-4 ring-white" />

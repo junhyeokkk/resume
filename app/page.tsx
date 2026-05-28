@@ -4,6 +4,7 @@ import ExperienceSection from "./components/ExperienceSection";
 import IntroduceSection from "./components/IntroduceSection";
 import PrintResumeButton from "./components/PrintResumeButton";
 import ProfileHeader from "./components/ProfileHeader";
+import PortfolioSection from "./components/PortfolioSection";
 import ProjectSection from "./components/ProjectSection";
 import SkillSection from "./components/SkillSection";
 import TrainingSection from "./components/TrainingSection";
@@ -13,7 +14,7 @@ export default function Home() {
   return (
     <>
       <RightSideNav />
-      <main className="min-h-screen bg-slate-100 text-slate-900">
+      <main className="page-bg min-h-screen text-slate-900">
         <PrintResumeButton />
 
         <div className="print-container mx-auto max-w-5xl px-6 py-12 md:px-8 lg:py-16">
@@ -25,6 +26,8 @@ export default function Home() {
           <ExperienceSection />
 
           <ProjectSection />
+
+          <PortfolioSection />
 
           <SkillSection />
 

@@ -6,6 +6,7 @@ const menus = [
   { label: "INTRODUCE", id: "introduce" },
   { label: "EXPERIENCE", id: "experience" },
   { label: "PROJECT", id: "project" },
+  { label: "PORTFOLIO", id: "portfolio" },
   { label: "SKILL", id: "skill" },
   { label: "EDUCATION", id: "education" },
   { label: "TRAINING", id: "training" },
