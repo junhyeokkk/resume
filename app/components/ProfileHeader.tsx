@@ -21,8 +21,9 @@ export default function ProfileHeader() {
           </p>
 
           <p className="mt-5 max-w-2xl text-base leading-7 text-slate-700">
-            데이터 처리, 검증 자동화, Azure 기반 백엔드 개발에 강점을 가진
-            백엔드 개발자입니다.
+            운영 안정성과 데이터 정합성에 집착하는 백엔드 엔지니어.
+            Azure 기반 해운 데이터 SaaS에서 데이터 적재·검증 자동화로
+            운영 효율을 끌어올립니다.
           </p>
 
           <div className="mt-6 flex flex-wrap gap-3 text-sm">

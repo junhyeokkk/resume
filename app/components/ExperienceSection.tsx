@@ -28,6 +28,11 @@ export default function ExperienceSection() {
                     <h3 className="text-xl font-bold text-slate-900">
                       {exp.company}
                     </h3>
+                    {exp.companyTagline && (
+                      <p className="mt-0.5 text-xs text-slate-500">
+                        {exp.companyTagline}
+                      </p>
+                    )}
                     <p className="mt-1 text-sm font-medium text-slate-600">
                       {exp.position}
                     </p>

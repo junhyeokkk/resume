@@ -9,6 +9,7 @@ export interface Profile {
 
 export interface Experience {
   company: string;
+  companyTagline?: string;
   position: string;
   period: string;
   status?: string;
@@ -61,7 +62,7 @@ export interface FeaturedProject {
 
 export const profile: Profile = {
   name: "최준혁",
-  role: "Backend Systems Engineer",
+  role: "Backend Engineer",
   email: "loveu9911111@gmail.com",
   phone: "010-3450-7418",
   github: "https://github.com/junhyeokkk",
@@ -69,26 +70,22 @@ export const profile: Profile = {
 };
 
 export const introduce: string[] = [
-  "Node.js 기반 백엔드 개발자로서 데이터 처리 및 검증 자동화 시스템 개발을 중심으로 다양한 서비스 운영 경험을 보유하고 있습니다. 특히 Azure 환경에서 Blob Storage, Cosmos DB 등을 활용한 데이터 동기화 및 검증 로직을 설계하고 안정적인 서비스 운영을 위한 백엔드 구조 개선을 수행해 왔습니다.",
+  "운영 안정성과 데이터 정합성에 집착하는 백엔드 엔지니어입니다. 해운·선박 운항 데이터 SaaS에서 선박 한 척당 1,000개 이상의 JSON 리포트를 Azure Blob Storage·Cosmos DB로 적재하고 비교 검증하는 Backoffice 시스템의 백엔드를 단독으로 설계·운영하며, 운영팀이 하루를 들여 수동으로 확인하던 정합성 검증을 1시간 이내로 단축했습니다.",
 
-  "Express 기반 서버 구조를 NestJS 아키텍처로 마이그레이션하며 의존성 주입, 모듈 구조 설계, 인터셉터 기반 공통 응답 처리 등 유지보수성과 확장성을 고려한 백엔드 구조 개선을 진행하였습니다. 또한 대용량 JSON 데이터 처리, 로그 검증 자동화, Blob 기반 데이터 비교 로직 등 데이터 중심 서비스 개발 경험을 보유하고 있습니다.",
-
-  "단순 기능 개발을 넘어 서비스 안정성과 운영 효율을 개선하는 백엔드 개발을 지향합니다. 반복적인 검증 작업 자동화, 장애 원인 분석 도구 개발, 데이터 정합성 검증 시스템 구축 등을 통해 실제 운영 환경에서 문제 해결 중심의 개발 경험을 쌓아왔습니다.",
-
-  "백엔드 개발자로서 기술적 완성도뿐 아니라 서비스 전체 흐름을 이해하고 제품 관점에서 문제를 해결하는 개발자로 성장하고자 합니다. 안정적인 아키텍처 설계와 지속 가능한 코드 구조를 기반으로 서비스 품질 향상에 기여하는 것을 목표로 합니다.",
+  "약 100개 엔드포인트·84,000 LOC 규모의 Express 레거시 서버를 NestJS DI 기반 아키텍처로 단독 마이그레이션해 인터셉터·예외 필터 기반 공통 처리와 TDD를 도입했습니다. 마이그레이션 이후에도 도메인 모델 통일·타입 안전성 강화·응답 파이프라인 최적화를 이어가며 운영 신뢰성을 끌어올리고 있습니다. 부트캠프 팀 프로젝트에서는 Kafka 비동기와 CompletableFuture 병렬 처리로 매칭 API 응답을 약 50% 단축한 경험이 있으며, 단순 기능 개발을 넘어 운영 안정성과 자동화로 서비스 품질에 기여하는 엔지니어로 성장하고자 합니다.",
 ];
 
 export const experiences: Experience[] = [
   {
     company: "(주) 랩오투원",
-    position: "백엔드 개발자",
+    companyTagline: "해운·선박 운항 데이터 SaaS",
+    position: "백엔드 개발자 (주니어 · 정직원)",
     period: "2025.04 ~ 현재",
     status: "재직 중",
     descriptions: [
-      "선박 데이터 관리 및 검증을 위한 Backoffice 시스템 구축",
-      "Express 기반 레거시 서버를 NestJS 기반 아키텍처로 마이그레이션",
-      "Jenkins 기반 Azure App Service CI/CD 파이프라인 구축",
-      "운영 데이터 비교 및 검증 자동화 기능 구현",
+      "선박 운항 리포트(JSON, 선박당 1,000개 이상) 적재·정합성 검증 Backoffice 시스템의 백엔드를 단독으로 설계·운영",
+      "운영팀이 엑셀로 수시 수동 비교하던 데이터 정합성 검증을 자동화하여, 하루가 걸리던 작업을 1시간 이내로 단축",
+      "약 100개 엔드포인트·84,000 LOC 규모의 Express 레거시 서버를 NestJS DI 기반으로 단독 마이그레이션 — 인터셉터·예외 필터·DTO 검증으로 공통 처리 일원화, TDD 도입",
     ],
     skills: [
       "Node.js",
@@ -105,53 +102,60 @@ export const experiences: Experience[] = [
 
 export const projects: Project[] = [
   {
-    period: "2026.02 ~ 2026.04",
-    title: "Express → NestJS 서버 마이그레이션",
-    subtitle: "레거시 백엔드 구조 개선",
+    period: "2026.04 ~ 현재",
+    title: "마이그레이션 후속 도메인 정리 및 타입 안전성 강화",
+    subtitle: "핵심 도메인 통일화·응답 파이프라인 최적화·타입 사슬 정합",
     descriptions: [
-      "Express 기반 레거시 서버를 NestJS 아키텍처로 마이그레이션",
-      "DI 기반 모듈 구조 설계 및 서비스 계층 분리",
-      "공통 응답 인터셉터 및 예외 처리 구조 개선",
+      "이전·신규 DB 구조 혼재로 4종으로 분기되던 동일 도메인 엔티티를 단일화하고, 영향받는 16개 모듈의 속성 접근 경로를 일괄 정정",
+      "도메인 상수에서 union 타입을 자동 도출해 7개 서비스·18개 함수 시그니처에 전파, 누적된 any·ts-ignore 캐스팅 사슬을 제거하며 컴파일 타임 입력 검증 강화",
+      "주요 조회 API의 직렬 IO 9건을 Promise.all로 병렬화하고, 반복 lookup을 O(n) filter → O(1) Map 인덱스로 전환",
+      "응답 조립을 8단계 Step으로 재구성하며 중복 lookup·dead null-guard·무의미한 try/catch·dead code를 정리하고 진입점 명시적 에러 처리로 전환 — silent failure·catch swallow·ts-ignore가 가린 정합성 버그 다수 진단·수정",
+      "1,903줄 단일 도메인 서비스를 역할별 3개로 분리·DI 재구성하고, 외부 인프라(NoSQL·Blob Storage) 직접 의존을 전용 Loader로 위임해 계층 책임 분리",
+    ],
+    skills: [
+      "TypeScript",
+      "NestJS",
+      "Domain Modeling",
+      "Type-Driven Refactoring",
+      "Performance Optimization",
+      "Clean Architecture",
+      "class-transformer",
+    ],
+  },
+  {
+    period: "2026.02 ~ 2026.04",
+    title: "Express → NestJS 단독 마이그레이션",
+    subtitle: "약 100개 엔드포인트·84,000 LOC 레거시 백엔드 구조 개선",
+    descriptions: [
+      "싱글톤 기반 Express 서버(약 100개 엔드포인트, 1,000개 TS 파일, 84,000 LOC)를 NestJS DI 기반 모듈 구조로 단독 마이그레이션",
+      "인터셉터·예외 필터로 공통 응답·에러 처리를 일원화하고 미들웨어 남용을 방지, DTO + class-validator로 런타임 입력 검증 적용",
+      "DI 기반으로 서비스 계층을 분리해 단위 테스트 가능성을 확보하고 TDD 도입, 결합도를 낮춰 신규 기능 추가 시 유지보수성 향상",
     ],
     skills: [
       "NestJS",
       "TypeScript",
+      "Express",
       "DI",
-      "Architecture",
-    ],
-  },
-  {
-    period: "2026.01 ~ 2026.02",
-    title: "NestJS 신규 서버 CI/CD 구축",
-    subtitle: "Azure App Service 자동 배포 파이프라인",
-    descriptions: [
-      "NestJS 신규 서버 Jenkins 기반 CI/CD 파이프라인 구축",
-      "Azure App Service 자동 배포 및 환경 분리 구성",
-      "Docker 기반 빌드 및 배포 자동화 프로세스 구현",
-    ],
-    skills: [
-      "NestJS",
-      "Jenkins",
-      "Azure App Service",
-      "Docker",
-      "CI/CD",
+      "TDD",
+      "class-validator",
     ],
   },
   {
     period: "2025.06 ~ 2025.12",
-    title: "선박 데이터 검증 Backoffice 시스템 구축",
-    subtitle: "운영 데이터 검증 및 관리 시스템",
+    title: "선박 운항 데이터 검증 Backoffice 시스템",
+    subtitle: "운영 데이터 적재·정합성 검증 자동화 (백엔드 단독 담당)",
     descriptions: [
-      "선박 데이터 조회 및 검증 관리 Backoffice 시스템 설계 및 구축",
-      "Cosmos DB / Blob Storage 데이터 비교 검증 기능 개발",
-      "운영 데이터 정합성 자동 검증 및 이슈 탐지 로직 구현",
+      "선박 운항 리포트(JSON, 선박당 1,000개 이상·파일당 500~1,500줄)를 Azure Blob Storage에 적재 → 해운 운항 계산을 거쳐 Cosmos DB에 정형화 저장하는 파이프라인의 검증 Backoffice 백엔드 설계·구현",
+      "운영팀이 엑셀로 수시 수동 비교하던 정합성 검증을 자동화하여, 하루가 걸리던 작업을 1시간 이내로 단축",
+      "Blob 원천 데이터와 Cosmos 가공 데이터의 차이를 자동 탐지·리포팅하는 검증 로직을 구현해 운영 이슈를 조기에 발견",
     ],
     skills: [
       "Node.js",
       "TypeScript",
       "NestJS",
-      "Azure Cosmos DB",
       "Azure Blob Storage",
+      "Azure Cosmos DB",
+      "MSSQL",
     ],
   },
 ];
@@ -163,23 +167,51 @@ export const skills: SkillGroup[] = [
   },
   {
     category: "Frameworks & Libraries",
-    items: ["Node.js", "NestJS", "Express", "Spring Boot", "React"],
+    items: [
+      "Node.js",
+      "NestJS",
+      "Express",
+      "Spring Boot",
+      "Spring Security / JWT",
+      "Spring AOP",
+      "JPA",
+      "React",
+      "Flutter",
+    ],
   },
   {
-    category: "Infrastructure & Databases",
+    category: "Databases & Messaging",
     items: [
-      "Azure",
+      "MSSQL",
+      "Azure Cosmos DB",
+      "MongoDB",
+      "MySQL",
+      "Oracle",
+      "Redis",
+      "Kafka",
+      "WebSocket / STOMP",
+    ],
+  },
+  {
+    category: "Cloud & Infrastructure",
+    items: [
       "Azure App Service",
       "Azure Blob Storage",
-      "Azure Cosmos DB",
-      "MSSQL",
-      "Redis",
+      "AWS EC2",
       "Docker",
     ],
   },
   {
-    category: "Tools",
-    items: ["Jenkins", "Git", "GitHub", "VS Code", "Bitbucket", "Jira", "Confluence"],
+    category: "DevOps & Tools",
+    items: [
+      "Jenkins",
+      "GitHub Actions",
+      "Git",
+      "GitHub",
+      "Bitbucket",
+      "Jira",
+      "Confluence",
+    ],
   },
 ];
 
@@ -189,12 +221,6 @@ export const educations: Education[] = [
     school: "동의대학교",
     major: "컴퓨터공학과",
     description: "학사 졸업",
-  },
-  {
-    period: "2015.03 ~ 2018.02",
-    school: "부산 신정고등학교",
-    major: "",
-    description: "졸업",
   },
 ];
 
@@ -216,17 +242,18 @@ export const trainings: Training[] = [
 export const featuredProjects: FeaturedProject[] = [
   {
     title: "Pingo",
-    tagline: "위치 기반 소셜 데이팅 앱 · Flutter + Spring Boot",
+    tagline: "위치 기반 소셜 데이팅 앱 · K-디지털 부트캠프 팀 프로젝트 (Flutter · Spring Boot)",
     period: "2025.01 ~ 2025.03",
     team: "4명",
-    role: "백엔드 · 위치/매칭 시스템",
+    role: "백엔드·프론트엔드(Flutter) · 위치/매칭 시스템",
     summary:
-      "주변 사용자를 추천하고 호감 표시·매칭 후 채팅으로 이어지는 소셜 데이팅 앱. 위치 기반 추천과 스와이프 매칭 시스템의 백엔드를 설계·구현했습니다.",
+      "주변 사용자를 추천하고 호감 표시·매칭 후 채팅으로 이어지는 소셜 데이팅 앱. 위치 기반 추천과 스와이프 매칭 시스템의 백엔드 설계·구현을 주도하고, Flutter 클라이언트(매칭/채팅 화면)도 함께 개발했습니다.",
     highlights: [
       "Kafka 비동기 + CompletableFuture 병렬 처리로 스와이프 API 응답 약 50% 단축, TPS 2배 향상 (JMeter 1,000명 기준 3.8s → 1.2s)",
       "Redis + Oracle(SDO_GEOM) 기반 위치 매칭 설계, 500m 이상 이동 시에만 DB 갱신해 불필요한 트랜잭션 최소화",
       "상호 호감 시 매칭 처리 및 WebSocket 실시간 알림·채팅방 자동 생성",
       "Redis–Oracle 위치 데이터 정합성 문제 해결 (Oracle 갱신 성공 시에만 Redis 반영)",
+      "Flutter 클라이언트의 매칭 스와이프 UI 구현 및 위치 권한 요청·백그라운드 갱신 흐름 처리",
     ],
     skills: [
       "Spring Boot",
@@ -251,17 +278,18 @@ export const featuredProjects: FeaturedProject[] = [
   },
   {
     title: "Antwork",
-    tagline: "사내 그룹웨어 · React + Spring Boot",
+    tagline: "사내 그룹웨어 · K-디지털 부트캠프 팀 프로젝트 (React · Spring Boot)",
     period: "2024.11 ~ 2024.12",
     team: "7명",
-    role: "백엔드 · 배포·인증·공통 기능",
+    role: "백엔드·프론트엔드(React) · 배포·인증·공통 기능",
     summary:
-      "프로젝트·채팅·캘린더·전자결재·드라이브 등을 갖춘 사내 그룹웨어. 서버 배포와 인증, 근태·전자결재, 접근 로그 등 백엔드 핵심 기능을 담당했습니다.",
+      "프로젝트·채팅·캘린더·전자결재·드라이브 등을 갖춘 사내 그룹웨어. 서버 배포와 인증, 근태·전자결재, 접근 로그 등 백엔드 핵심 기능과 담당 도메인의 React 화면을 함께 개발했습니다.",
     highlights: [
       "AWS EC2 + GitHub Actions 기반 CI/CD 구축 (JAR 빌드·전송·자동 실행 자동화)",
       "Spring Security/JWT 인증 구현 — JwtAuthenticationFilter/Provider, Refresh Token httpOnly 쿠키 자동 갱신",
       "Spring AOP + Kafka → MongoDB 비동기 접근 로그 시스템 구축 및 검색 최적화",
       "EC2 채굴 악성 컨테이너 침해 탐지·제거 및 방화벽·보안그룹 강화로 서버 안정화",
+      "담당 도메인의 React 화면 구현 — 전자결재 작성·조회, 근태 신청·조회, 로그인 폼 및 JWT 기반 권한 라우팅",
     ],
     skills: [
       "Spring Boot",
