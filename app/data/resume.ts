@@ -85,7 +85,7 @@ export const experiences: Experience[] = [
     descriptions: [
       "선박 운항 리포트(JSON, 선박당 1,000개 이상) 적재·정합성 검증 Backoffice 시스템의 백엔드를 단독으로 설계·운영",
       "운영팀이 엑셀로 수시 수동 비교하던 데이터 정합성 검증을 자동화하여, 하루가 걸리던 작업을 1시간 이내로 단축",
-      "약 100개 엔드포인트·84,000 LOC 규모의 Express 레거시 서버를 NestJS DI 기반으로 단독 마이그레이션 — 인터셉터·예외 필터·DTO 검증으로 공통 처리 일원화, TDD 도입",
+      "약 100개 엔드포인트·84,000 LOC 규모의 Express 레거시 서버를 NestJS DI 기반으로 마이그레이션 — 인터셉터·예외 필터·DTO 검증으로 공통 처리 일원화, TDD 도입",
     ],
     skills: [
       "Node.js",
@@ -103,7 +103,7 @@ export const experiences: Experience[] = [
 export const projects: Project[] = [
   {
     period: "2026.05 ~ 현재",
-    title: "핵심 운항 보고 템플릿 데이터 정규화",
+    title: "대규모 설정 테이블 정규화 (5,500행·48만 필드)",
     subtitle:
       "시스템 중심 설정 테이블 정규화 — 정합성·확장성·조회 성능 개선 (분석·설계·DDL 완료, 데이터 이전 진행 중)",
     descriptions: [
@@ -121,7 +121,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    period: "2026.02 ~ 2026-05",
+    period: "2026.02 ~ 2026.05",
     title: "Express → NestJS 마이그레이션 및 후속 안정화",
     subtitle: "약 100개 엔드포인트·84,000 LOC 레거시 백엔드 마이그레이션 → 도메인 통일·타입 안전성·응답 성능 개선",
     descriptions: [
@@ -137,17 +137,15 @@ export const projects: Project[] = [
       "Express",
       "DI",
       "TDD",
-      "Domain Modeling",
-      "Clean Architecture",
-      "Performance Optimization",
+      "class-validator",
     ],
   },
   {
     period: "2025.06 ~ 2025.12",
-    title: "선박 운항 데이터 검증 Backoffice 시스템",
+    title: "대량 JSON 데이터 검증 자동화 Backoffice",
     subtitle: "운영 데이터 적재·정합성 검증 자동화 (백엔드 단독 담당)",
     descriptions: [
-      "선박당 1,000개 이상의 운항 리포트(JSON)를 Blob Storage → Cosmos DB로 적재·정형화하는 파이프라인의 검증 Backoffice 백엔드를 단독 설계·구현",
+      "선박당 1,000개 이상의 운항 리포트(JSON)를 Blob Storage → Cosmos DB로 적재·정형화하는 파이프라인의 검증 Backoffice 백엔드를 설계·구현",
       "운영팀이 엑셀로 수동 비교하던 정합성 검증을 자동화하여, 하루가 걸리던 작업을 1시간 이내로 단축",
       "원천 데이터와 가공 데이터의 차이를 자동 탐지·리포팅해 운영 이슈를 조기에 발견",
       "테스트 시 운항 리포트를 일일이 수작업 세팅하던 과정을 복사·자동 데이터 세팅 도구로 대체해 테스트 준비 시간을 단축",
