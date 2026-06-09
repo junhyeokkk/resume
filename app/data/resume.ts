@@ -70,9 +70,9 @@ export const profile: Profile = {
 };
 
 export const introduce: string[] = [
-  "운영 안정성과 데이터 정합성에 집착하는 백엔드 엔지니어입니다. 해운·선박 운항 데이터 SaaS에서 선박 한 척당 1,000개 이상의 JSON 리포트를 Azure Blob Storage·Cosmos DB로 적재하고 비교 검증하는 Backoffice 시스템의 백엔드를 단독으로 설계·운영하며, 운영팀이 하루를 들여 수동으로 확인하던 정합성 검증을 1시간 이내로 단축했습니다.",
+  "운영 안정성과 데이터 정합성에 집착하는 백엔드 엔지니어입니다. 해운·선박 운항 데이터 SaaS의 검증 Backoffice 백엔드를 단독으로 설계·운영하며, 운영팀이 수동으로 확인하던 데이터 정합성 검증을 자동화했습니다.",
 
-  "약 100개 엔드포인트·84,000 LOC 규모의 Express 레거시 서버를 NestJS DI 기반 아키텍처로 단독 마이그레이션해 인터셉터·예외 필터 기반 공통 처리와 TDD를 도입했습니다. 마이그레이션 이후에도 도메인 모델 통일·타입 안전성 강화·응답 파이프라인 최적화를 이어가며 운영 신뢰성을 끌어올리고 있습니다. 부트캠프 팀 프로젝트에서는 Kafka 비동기와 CompletableFuture 병렬 처리로 매칭 API 응답을 약 50% 단축한 경험이 있으며, 단순 기능 개발을 넘어 운영 안정성과 자동화로 서비스 품질에 기여하는 엔지니어로 성장하고자 합니다.",
+  "대규모 Express 레거시 서버를 NestJS DI 기반 아키텍처로 단독 마이그레이션하고, 이후에도 도메인 모델 통일·타입 안전성 강화·응답 파이프라인 최적화를 이어가며 운영 신뢰성을 끌어올리고 있습니다. 단순 기능 개발을 넘어 운영 안정성과 자동화로 서비스 품질에 기여하는 엔지니어로 성장하고자 합니다.",
 ];
 
 export const experiences: Experience[] = [
@@ -102,34 +102,34 @@ export const experiences: Experience[] = [
 
 export const projects: Project[] = [
   {
-    period: "2026.04 ~ 현재",
-    title: "마이그레이션 후속 도메인 정리 및 타입 안전성 강화",
-    subtitle: "핵심 도메인 통일화·응답 파이프라인 최적화·타입 사슬 정합",
+    period: "2026.05 ~ 현재",
+    title: "핵심 운항 보고 템플릿 데이터 정규화",
+    subtitle:
+      "시스템 중심 설정 테이블 정규화 — 정합성·확장성·조회 성능 개선 (분석·설계·DDL 완료, 데이터 이전 진행 중)",
     descriptions: [
-      "이전·신규 DB 구조 혼재로 4종으로 분기되던 동일 도메인 엔티티를 단일화하고, 영향받는 16개 모듈의 속성 접근 경로를 일괄 정정",
-      "도메인 상수에서 union 타입을 자동 도출해 7개 서비스·18개 함수 시그니처에 전파, 누적된 any·ts-ignore 캐스팅 사슬을 제거하며 컴파일 타임 입력 검증 강화",
-      "주요 조회 API의 직렬 IO 9건을 Promise.all로 병렬화하고, 반복 lookup을 O(n) filter → O(1) Map 인덱스로 전환",
-      "응답 조립을 8단계 Step으로 재구성하며 중복 lookup·dead null-guard·무의미한 try/catch·dead code를 정리하고 진입점 명시적 에러 처리로 전환 — silent failure·catch swallow·ts-ignore가 가린 정합성 버그 다수 진단·수정",
-      "1,903줄 단일 도메인 서비스를 역할별 3개로 분리·DI 재구성하고, 외부 인프라(NoSQL·Blob Storage) 직접 의존을 전용 Loader로 위임해 계층 책임 분리",
+      "전 선박의 일일 보고 구조가 파생되는 시스템 핵심 설정 테이블(약 5,500행)을 분석·재설계 — 수집 필드를 콤마 문자열 한 칸에 뭉쳐 저장(행당 최대 303개·총 약 48만 개)해 FK·정합성이 전혀 보장되지 않던 구조",
+      "실제 데이터로 함수 종속·중복·고아 키를 검증한 뒤, 단일 비정규화 테이블을 마스터(이벤트·필드 사전)에 FK로 연결한 4개 테이블(3NF)로 정규화 (런타임 동적 필드는 베이스 키로 분리해 비즈니스 로직과 격리)",
+      "콤마 문자열을 조회 가능한 행으로 분해해, '특정 필드를 사용하는 이벤트 전체 조회' 같은 질의를 문자열 전체 스캔 → 인덱스 조회로 전환",
+      "UNIQUE·FK 제약으로 행 내 중복 필드(32건)·비표준 키 등 기존엔 막지 못하던 정합성 문제를 DB 레벨에서 원천 차단",
     ],
     skills: [
-      "TypeScript",
-      "NestJS",
-      "Domain Modeling",
-      "Type-Driven Refactoring",
-      "Performance Optimization",
-      "Clean Architecture",
-      "class-transformer",
+      "MSSQL",
+      "Database Design",
+      "Normalization (3NF)",
+      "Data Migration",
+      "Query Optimization",
     ],
   },
   {
-    period: "2026.02 ~ 2026.04",
-    title: "Express → NestJS 단독 마이그레이션",
-    subtitle: "약 100개 엔드포인트·84,000 LOC 레거시 백엔드 구조 개선",
+    period: "2026.02 ~ 2026-05",
+    title: "Express → NestJS 마이그레이션 및 후속 안정화",
+    subtitle: "약 100개 엔드포인트·84,000 LOC 레거시 백엔드 마이그레이션 → 도메인 통일·타입 안전성·응답 성능 개선",
     descriptions: [
-      "싱글톤 기반 Express 서버(약 100개 엔드포인트, 1,000개 TS 파일, 84,000 LOC)를 NestJS DI 기반 모듈 구조로 단독 마이그레이션",
-      "인터셉터·예외 필터로 공통 응답·에러 처리를 일원화하고 미들웨어 남용을 방지, DTO + class-validator로 런타임 입력 검증 적용",
-      "DI 기반으로 서비스 계층을 분리해 단위 테스트 가능성을 확보하고 TDD 도입, 결합도를 낮춰 신규 기능 추가 시 유지보수성 향상",
+      "싱글톤 기반 Express 서버(약 100개 엔드포인트·84,000 LOC)를 NestJS DI 기반 모듈 구조로 단독 마이그레이션",
+      "인터셉터·예외 필터로 공통 응답·에러 처리를 일원화하고, DTO + class-validator로 런타임 입력 검증 적용",
+      "DI로 서비스 계층을 분리해 단위 테스트 가능 구조를 확보하고 TDD 도입 — 결합도를 낮춰 유지보수성 향상",
+      "이후 도메인 정리에 착수 — 4종으로 분기되던 핵심 엔티티를 단일 모델로 통일(16개 모듈 정리)하고, any·ts-ignore 캐스팅을 제거해 입력 오류를 컴파일 단계에서 차단",
+      "주요 조회 API의 직렬 IO를 병렬화해 응답 경로를 최적화하고, 1,903줄 단일 서비스를 역할별 3개로 분리하며 정합성 버그 다수 발견·수정",
     ],
     skills: [
       "NestJS",
@@ -137,7 +137,9 @@ export const projects: Project[] = [
       "Express",
       "DI",
       "TDD",
-      "class-validator",
+      "Domain Modeling",
+      "Clean Architecture",
+      "Performance Optimization",
     ],
   },
   {
@@ -145,9 +147,10 @@ export const projects: Project[] = [
     title: "선박 운항 데이터 검증 Backoffice 시스템",
     subtitle: "운영 데이터 적재·정합성 검증 자동화 (백엔드 단독 담당)",
     descriptions: [
-      "선박 운항 리포트(JSON, 선박당 1,000개 이상·파일당 500~1,500줄)를 Azure Blob Storage에 적재 → 해운 운항 계산을 거쳐 Cosmos DB에 정형화 저장하는 파이프라인의 검증 Backoffice 백엔드 설계·구현",
-      "운영팀이 엑셀로 수시 수동 비교하던 정합성 검증을 자동화하여, 하루가 걸리던 작업을 1시간 이내로 단축",
-      "Blob 원천 데이터와 Cosmos 가공 데이터의 차이를 자동 탐지·리포팅하는 검증 로직을 구현해 운영 이슈를 조기에 발견",
+      "선박당 1,000개 이상의 운항 리포트(JSON)를 Blob Storage → Cosmos DB로 적재·정형화하는 파이프라인의 검증 Backoffice 백엔드를 단독 설계·구현",
+      "운영팀이 엑셀로 수동 비교하던 정합성 검증을 자동화하여, 하루가 걸리던 작업을 1시간 이내로 단축",
+      "원천 데이터와 가공 데이터의 차이를 자동 탐지·리포팅해 운영 이슈를 조기에 발견",
+      "테스트 시 운항 리포트를 일일이 수작업 세팅하던 과정을 복사·자동 데이터 세팅 도구로 대체해 테스트 준비 시간을 단축",
     ],
     skills: [
       "Node.js",
@@ -175,8 +178,6 @@ export const skills: SkillGroup[] = [
       "Spring Security / JWT",
       "Spring AOP",
       "JPA",
-      "React",
-      "Flutter",
     ],
   },
   {
@@ -212,6 +213,10 @@ export const skills: SkillGroup[] = [
       "Jira",
       "Confluence",
     ],
+  },
+  {
+    category: "Frontend (참고)",
+    items: ["React", "Flutter"],
   },
 ];
 
