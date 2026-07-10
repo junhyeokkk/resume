@@ -49,8 +49,14 @@ export default function ExperienceSection() {
                 <ul className="mt-5 space-y-2 text-[15px] leading-7 text-slate-700">
                   {exp.descriptions.map((desc, idx) => (
                     <li key={idx} className="flex gap-3">
-                      <span className="mt-2 h-2 w-2 rounded-full bg-blue-500" />
-                      <span>{desc}</span>
+                      <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-blue-500" />
+                      <span>
+                        <strong className="font-semibold text-slate-900">
+                          {desc.lead}
+                        </strong>
+                        <span className="text-slate-400"> — </span>
+                        {desc.detail}
+                      </span>
                     </li>
                   ))}
                 </ul>

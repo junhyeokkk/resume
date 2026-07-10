@@ -63,40 +63,82 @@ html {
 }
 
 @media print {
-  /* keep gradient text readable on paper */
-  .text-gradient {
-    -webkit-text-fill-color: #0f172a !important;
-    color: #0f172a !important;
-    background: none !important;
+  @page {
+    size: A4;
+    margin: 12mm 14mm;
   }
 
-  .print-hidden {
+  html,
+  body {
+    background: #ffffff !important;
+    color: #1f2937 !important;
+    font-size: 10.5pt;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  main {
+    background: #ffffff !important;
+    min-height: auto !important;
+  }
+
+  /* 화면용 여백 제거 · 전체 폭 사용 */
+  .print-container {
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* 인터랙션/장식 요소 숨김 */
+  .print-hidden,
+  nav,
+  .fixed,
+  footer {
     display: none !important;
   }
 
-  .print-section,
-  .print-card,
-  .print-block {
+  /* 그라디언트 텍스트를 인쇄용 단색으로 */
+  .text-gradient {
+    -webkit-text-fill-color: #1d4ed8 !important;
+    color: #1d4ed8 !important;
+    background: none !important;
+  }
+
+  /* 섹션 간격 축소 */
+  section {
+    margin-bottom: 14px !important;
+  }
+
+  /* 카드 테두리: box-shadow(ring)는 인쇄에서 사라지므로 실제 border로 대체 */
+  .print-container [class*="rounded-2xl"],
+  .print-container [class*="rounded-3xl"] {
+    border: 1px solid #d7deea !important;
+    border-radius: 10px !important;
+    box-shadow: none !important;
+    padding: 14px 16px !important;
     break-inside: avoid;
     page-break-inside: avoid;
   }
 
-  /* 우측 네비 숨기기 */
-  nav {
-    display: none !important;
+  /* 블록/리스트 쪼개짐 방지 */
+  .print-section,
+  .print-card,
+  .print-block,
+  li {
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 
-  /* floating 버튼 숨기기 */
-  .fixed {
-    display: none !important;
+  /* 제목이 페이지 끝에 홀로 남지 않게 */
+  h1,
+  h2,
+  h3,
+  h4 {
+    break-after: avoid;
+    page-break-after: avoid;
   }
 
-  .print-card {
-    background: #ffffff !important;
-    border: 1px solid #dbe3ef !important;
-    box-shadow: none !important;
-  }
-
+  /* 헤더: 사진을 텍스트 옆에 배치 */
   .print-left {
     text-align: left !important;
     align-items: flex-start !important;
@@ -124,10 +166,10 @@ html {
   }
 
   .print-header-photo {
-    width: 160px !important;
-    height: 160px !important;
-    min-width: 160px !important;
-    min-height: 160px !important;
+    width: 132px !important;
+    height: 132px !important;
+    min-width: 132px !important;
+    min-height: 132px !important;
   }
 
   a {
@@ -136,22 +178,8 @@ html {
   }
 
   * {
-    box-shadow: none !important;
     text-shadow: none !important;
-    transform: none !important;
     transition: none !important;
-  }
-
-  main {
-    background: #ffffff !important;
-    min-height: auto !important;
-  }
-
-  html,
-  body {
-    background: #ffffff !important;
-    color: #111827 !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
+    animation: none !important;
   }
 }

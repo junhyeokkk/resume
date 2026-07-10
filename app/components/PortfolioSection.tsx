@@ -46,9 +46,15 @@ export default function PortfolioSection() {
               </h4>
               <ul className="mt-3 space-y-2 text-[15px] leading-7 text-slate-700">
                 {project.highlights.map((item) => (
-                  <li key={item} className="flex gap-3">
+                  <li key={item.lead} className="flex gap-3">
                     <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-blue-500" />
-                    <span>{item}</span>
+                    <span>
+                      <strong className="font-semibold text-slate-900">
+                        {item.lead}
+                      </strong>
+                      <span className="text-slate-400"> — </span>
+                      {item.detail}
+                    </span>
                   </li>
                 ))}
               </ul>
